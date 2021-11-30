@@ -1,7 +1,7 @@
 module.exports = app => {
     const test = require("../controllers/test.controller.js");
   
-    var router = require("express").Router();
+    var router  = require("express").Router();
     var swaggerUi = require('swagger-ui-express'),
     swaggerDocument = require('../../swagger_output.json');
     // Create a new test
