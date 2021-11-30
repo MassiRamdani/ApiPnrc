@@ -29,5 +29,6 @@ $ node server.js
 ## Framework and technologies used
 * [node.js](https://nodejs.org/en/)
 * [express.js](https://expressjs.com/fr/)
+* [swagger.io](https://swagger.io/)
 
 
