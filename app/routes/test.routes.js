@@ -2,27 +2,32 @@ module.exports = app => {
     const test = require("../controllers/test.controller.js");
   
     var router = require("express").Router();
-  
+    var swaggerUi = require('swagger-ui-express'),
+    swaggerDocument = require('../../swagger_output.json');
     // Create a new test
-    router.post("/", test.create);
-  
+   
+    router.post("/add", test.create);
+   
     // Retrieve all test
-    router.get("/", test.findAll);
+    router.get("/getAll", test.findAll);
   
     // Retrieve all published test
-    router.get("/published", test.findAllPublished);
+    router.get("/getAllpublished", test.findAllPublished);
   
     // Retrieve a single test with id
-    router.get("/:id", test.findOne);
+    router.get("/getById/:id", test.findOne);
   
     // Update a test with id
-    router.put("/:id", test.update);
+    router.put("/updateById/:id", test.update);
   
     // Delete a test with id
-    router.delete("/:id", test.delete);
+    router.delete("/deleteById/:id", test.delete);
   
     // Delete all test
-    router.delete("/", test.deleteAll);
+    router.delete("/deleteAll", test.deleteAll);
   
-    app.use('/api/test', router);
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+    app.use('/api/v1', router);
+
+    
   };

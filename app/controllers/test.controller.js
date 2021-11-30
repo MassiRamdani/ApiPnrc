@@ -3,6 +3,7 @@ const Test = require("../models/test.model.js");
 // Create and Save a new test
 exports.create = (req, res) => {
     // Validate request
+
     if (!req.body) {
       res.status(400).send({
         message: "Content can not be empty!"
@@ -15,7 +16,8 @@ exports.create = (req, res) => {
       description: req.body.description,
       published: req.body.published || false
     });
-  
+   //#swagger.tags = ['Test']
+    // #swagger.description = 'Add test in database.';
     // Save test in the database
     Test.create(test, (err, data) => {
       if (err)
@@ -30,7 +32,8 @@ exports.create = (req, res) => {
 // Retrieve all test from the database (with condition).
 exports.findAll = (req, res) => {
     const title = req.query.title;
-  
+  //#swagger.tags = ['Test']
+    // #swagger.description = 'Find all test in database.';
     Test.getAll(title, (err, data) => {
       if (err)
         res.status(500).send({
@@ -42,6 +45,8 @@ exports.findAll = (req, res) => {
   };
   // find all published test
   exports.findAllPublished = (req, res) => {
+      //#swagger.tags = ['Test']
+    // #swagger.description = 'Find all published test in database.';
     Test.getAllPublished((err, data) => {
       if (err)
         res.status(500).send({
@@ -54,6 +59,8 @@ exports.findAll = (req, res) => {
 
 // Find a single test with a id
 exports.findOne = (req, res) => {
+    //#swagger.tags = ['Test']
+    // #swagger.description = 'Find test by id in database.';
     Test.findById(req.params.id, (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
@@ -74,6 +81,8 @@ exports.findOne = (req, res) => {
 
 // Update a test identified by the id in the request
 exports.update = (req, res) => {
+    //#swagger.tags = ['Test']
+    // #swagger.description = 'Update test in database.';
     // Validate Request
     if (!req.body) {
       res.status(400).send({
@@ -104,6 +113,8 @@ exports.update = (req, res) => {
 
 // Delete a test with the specified id in the request
 exports.delete = (req, res) => {
+    //#swagger.tags = ['Test']
+    // #swagger.description = 'Delete test by id in database.';
     Test.remove(req.params.id, (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
@@ -121,6 +132,8 @@ exports.delete = (req, res) => {
 
 // Delete all test from the database.
 exports.deleteAll = (req, res) => {
+    //#swagger.tags = ['Test']
+    // #swagger.description = 'Delete all test in database.';
     Test.removeAll((err, data) => {
       if (err)
         res.status(500).send({
