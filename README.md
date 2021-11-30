@@ -8,7 +8,7 @@ the project authors are :
 https://apipnrc.herokuapp.com
 
 ## Api documentation
-https://apipnrc.herokuapp.com
+https://apipnrc.herokuapp.com/api-docs/
 
 ## Run locally
 
