@@ -1,7 +1,7 @@
 # ApiPnrc
 ## Api link
 https://apipnrc.herokuapp.com
-## Run
+## Run locally
 
 To build and run this application locally, you'll need latest versions of Git. From your command line:
 
