@@ -17,5 +17,5 @@ $ node server.js
 
 ```
 ## Auteurs
-Listez le(s) auteur(s) du projet ici !
+the project authors are :
 * **Massinissa Ramdani**
