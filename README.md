@@ -1,4 +1,9 @@
 # ApiPnrc
+
+## Auteurs
+the project authors are :
+* **Massinissa Ramdani**
+
 ## Api link
 https://apipnrc.herokuapp.com
 
@@ -20,6 +25,9 @@ $ cd ApiPnrc
 $ node server.js
 
 ```
-## Auteurs
-the project authors are :
-* **Massinissa Ramdani**
+
+## Framework and technologies used
+* [node.js](https://nodejs.org/en/)
+* [express.js](https://expressjs.com/fr/)
+
+
