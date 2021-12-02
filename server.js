@@ -3,6 +3,7 @@ const cors = require("cors");
 
 const app = express();
 
+
 var corsOptions = {
   origin: "https://apipnrc.herokuapp.com"
 };
@@ -19,6 +20,11 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to pnrc api." });
 });
+
+//doc with swagger
+var swaggerUi = require("swagger-ui-express"),
+swaggerDocument = require("./swagger_output.json");
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 require("./app/routes/test.routes.js")(app);
 

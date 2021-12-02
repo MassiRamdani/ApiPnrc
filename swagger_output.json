@@ -18,35 +18,37 @@
     "application/json"
   ],
   "paths": {
-    "/add": {
-      "post": {
+    "/gite/getAll": {
+      "get": {
         "tags": [
-          "Test"
+          "Gites"
         ],
-        "description": "Add test in database.",
+        "description": "Find all Gite in database.",
+        "parameters": [],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/gite/getById/{id}": {
+      "get": {
+        "tags": [
+          "Gites"
+        ],
+        "description": "Find Gite by id in database.",
         "parameters": [
           {
-            "name": "obj",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "published": {
-                  "example": "any"
-                }
-              }
-            }
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
-          "400": {
-            "description": "Bad Request"
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -54,32 +56,36 @@
         }
       }
     },
-    "/getAll": {
+    "/gite/getByName/{libelle}": {
       "get": {
         "tags": [
-          "Test"
+          "Gites"
+        ],
+        "description": "Find Gite by name in database.",
+        "parameters": [
+          {
+            "name": "libelle",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/randonnee/getAll": {
+      "get": {
+        "tags": [
+          "Randonnees"
         ],
         "description": "Find all test in database.",
-        "parameters": [
-          {
-            "name": "title",
-            "in": "query",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/getAllpublished": {
-      "get": {
-        "tags": [
-          "Test"
-        ],
-        "description": "Find all published test in database.",
         "parameters": [],
         "responses": {
           "500": {
@@ -88,12 +94,12 @@
         }
       }
     },
-    "/getById/{id}": {
+    "/randonnee/getById/{id}": {
       "get": {
         "tags": [
-          "Test"
+          "Randonnees"
         ],
-        "description": "Find test by id in database.",
+        "description": "Find randonnee by id in database.",
         "parameters": [
           {
             "name": "id",
@@ -112,42 +118,15 @@
         }
       }
     },
-    "/updateById/{id}": {
-      "put": {
+    "/randonnee/getByName/{libelle}": {
+      "get": {
         "tags": [
-          "Test"
+          "Randonnees"
         ],
-        "description": "Update test in database.",
+        "description": "Find Randonnee by name in database.",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/deleteById/{id}": {
-      "delete": {
-        "tags": [
-          "Test"
-        ],
-        "description": "Delete test by id in database.",
-        "parameters": [
-          {
-            "name": "id",
+            "name": "libelle",
             "in": "path",
             "required": true,
             "type": "string"
@@ -163,14 +142,310 @@
         }
       }
     },
-    "/deleteAll": {
-      "delete": {
+    "/foret/getAll": {
+      "get": {
         "tags": [
-          "Test"
+          "Forets"
         ],
-        "description": "Delete all test in database.",
+        "description": "Find all Foret in database.",
         "parameters": [],
         "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/foret/getById/{id}": {
+      "get": {
+        "tags": [
+          "Forets"
+        ],
+        "description": "Find Foret by id in database.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/foret/getByName/{libelle}": {
+      "get": {
+        "tags": [
+          "Forets"
+        ],
+        "description": "Find Foret by name in database.",
+        "parameters": [
+          {
+            "name": "libelle",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/activite/getAll": {
+      "get": {
+        "tags": [
+          "Activites"
+        ],
+        "description": "Find all Activite in database.",
+        "parameters": [],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/activite/getById/{id}": {
+      "get": {
+        "tags": [
+          "Activites"
+        ],
+        "description": "Find Activite by id in database.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/activite/getByName/{libelle}": {
+      "get": {
+        "tags": [
+          "Activites"
+        ],
+        "description": "Find Activite by name in database.",
+        "parameters": [
+          {
+            "name": "libelle",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/village/getAll": {
+      "get": {
+        "tags": [
+          "Villages"
+        ],
+        "description": "Find all Village in database.",
+        "parameters": [],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/village/getById/{id}": {
+      "get": {
+        "tags": [
+          "Villages"
+        ],
+        "description": "Find Village by id in database.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/village/getByName/{libelle}": {
+      "get": {
+        "tags": [
+          "Villages"
+        ],
+        "description": "Find Village by name in database.",
+        "parameters": [
+          {
+            "name": "libelle",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/reserve/getAll": {
+      "get": {
+        "tags": [
+          "Reserves"
+        ],
+        "description": "Find all Reserve in database.",
+        "parameters": [],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/reserve/getById/{id}": {
+      "get": {
+        "tags": [
+          "Reserves"
+        ],
+        "description": "Find Reserve by id in database.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/reserve/getByName/{libelle}": {
+      "get": {
+        "tags": [
+          "Reserves"
+        ],
+        "description": "Find Reserve by name in database.",
+        "parameters": [
+          {
+            "name": "libelle",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/restaurant/getAll": {
+      "get": {
+        "tags": [
+          "Restaurants"
+        ],
+        "description": "Find all Restaurant in database.",
+        "parameters": [],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/restaurant/getById/{id}": {
+      "get": {
+        "tags": [
+          "Restaurants"
+        ],
+        "description": "Find Restaurant by id in database.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/restaurant/getByName/{libelle}": {
+      "get": {
+        "tags": [
+          "Restaurants"
+        ],
+        "description": "Find Restaurant by name in database.",
+        "parameters": [
+          {
+            "name": "libelle",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
           "500": {
             "description": "Internal Server Error"
           }
