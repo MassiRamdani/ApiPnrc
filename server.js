@@ -33,6 +33,7 @@ require("./app/routes/gite.routes")(app);
 require("./app/routes/activite.routes")(app);
 require("./app/routes/reserve.routes")(app);
 require("./app/routes/randonnee.routes")(app);
+require("./app/routes/restaurant.routes")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

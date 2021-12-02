@@ -7,7 +7,7 @@ exports.findAll = (req, res) => {
    
   //#swagger.tags = ['Reserves']
   // #swagger.description = 'Find all Reserve in database.';
-  Reeerve.getAll((err, data) => {
+  Reserve.getAll((err, data) => {
     if (err)
       res.status(500).send({
         message: err.message || "Some error occurred while retrieving Reserve.",
@@ -39,15 +39,15 @@ exports.findById = (req, res) => {
 exports.findByName = (req, res) => {
   //#swagger.tags = ['Reserves']
   // #swagger.description = 'Find Reserve by name in database.';
-  Reserve.findByName(req.params.nom, (err, data) => {
+  Reserve.findByName(req.params.libelle, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found foret with id ${req.params.nom}.`,
+          message: `Not found foret with id ${req.params.libelle}.`,
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving Reserve with id " + req.params.nom,
+          message: "Error retrieving Reserve with id " + req.params.libelle,
         });
       }
     } else res.send(data);

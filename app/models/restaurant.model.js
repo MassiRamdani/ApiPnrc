@@ -71,4 +71,4 @@ Restaurant.getAll = (result) => {
   });
 };
 
-module.exports = Foret;
+module.exports = Restaurant;
