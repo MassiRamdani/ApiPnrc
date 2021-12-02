@@ -28,7 +28,13 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 require("./app/routes/test.routes.js")(app);
 require("./app/routes/foret.routes")(app);
-
+require("./app/routes/village.routes")(app);
+require("./app/routes/gite.routes")(app);
+require("./app/routes/restaurant.routes")(app);
+require("./app/routes/activite.routes")(app);
+require("./app/routes/randonnee.routes")(app);
+require("./app/routes/reserve.routes")(app);
+ 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
