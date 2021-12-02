@@ -29,6 +29,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 require("./app/routes/test.routes.js")(app);
 require("./app/routes/foret.routes")(app);
 require("./app/routes/village.routes")(app);
+require("./app/routes/gite.routes")(app);
 
  
 // set port, listen for requests
