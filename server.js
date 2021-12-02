@@ -30,6 +30,8 @@ require("./app/routes/test.routes.js")(app);
 require("./app/routes/foret.routes")(app);
 require("./app/routes/village.routes")(app);
 require("./app/routes/gite.routes")(app);
+require("./app/routes/restaurant.routes")(app);
+require("./app/routes/activite.routes")(app);
 
  
 // set port, listen for requests
