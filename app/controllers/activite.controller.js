@@ -39,15 +39,15 @@ exports.findById = (req, res) => {
 exports.findByName = (req, res) => {
   //#swagger.tags = ['Activites']
   // #swagger.description = 'Find Activite by name in database.';
-  Activite.findByName(req.params.nom, (err, data) => {
+  Activite.findByName(req.params.libelle, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Activite with id ${req.params.nom}.`,
+          message: `Not found Activite with id ${req.params.libelle}.`,
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving Activite with id " + req.params.nom,
+          message: "Error retrieving Activite with id " + req.params.libelle,
         });
       }
     } else res.send(data);
