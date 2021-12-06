@@ -3,6 +3,10 @@
 ## Auteurs
 the project authors are :
 * **Massinissa Ramdani**
+* **Dylan Heyraud**
+* **Manel Daouadji**
+* **Yasmine Menguelti**
+* **Pierre-Marie Giancoli**
 
 ## Api link
 https://apipnrc.herokuapp.com
